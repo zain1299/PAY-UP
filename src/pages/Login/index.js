@@ -86,12 +86,15 @@ const SignInScreen = ({navigation}) => {
   };
 
   const loginHandle = () => {
+    setLoading(true);
     if (data.number?.length == 0 || data.password?.length == 0) {
       Alert.alert('Wrong Input!', 'number or password field cannot be empty.', [
         {text: 'Okay'},
       ]);
+      setLoading(false);
     } else {
-      Alert.alert('Okay', 'Successfully', [{text: 'Okay'}]);
+      setLoading(false);
+      navigation.navigate('Home');
     }
   };
 

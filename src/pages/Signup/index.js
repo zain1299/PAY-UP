@@ -139,20 +139,22 @@ const Signup = ({navigation}) => {
             ]}>
             Gender
           </Text>
-          <Dropdown
-            control={control}
-            name="gender"
-            error={!!errors?.activity_id}
-            message={errors?.activity_id?.message}
-            containerStyles={styles.action}
-            items={gender}
-          />
+          <View style={styles.action}>
+            <Dropdown
+              control={control}
+              name="gender"
+              error={!!errors?.activity_id}
+              message={errors?.activity_id?.message}
+              containerStyles={styles.action}
+              items={gender}
+            />
+          </View>
 
           <Text
             style={[
               styles.text_footer,
               {
-                marginTop: 35,
+                marginTop: 30,
               },
             ]}>
             I'd Card

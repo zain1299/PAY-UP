@@ -1,3 +1,4 @@
 import {Dropdown} from './Dropdown';
+import Button from './Button';
 
-export {Dropdown};
+export {Dropdown, Button};

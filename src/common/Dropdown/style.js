@@ -16,7 +16,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     alignContent: 'center',
     width: '100%',
-    height: wp('11.75'),
+    height: wp('12'),
   },
   pickerView: {
     minWidth: '100%',

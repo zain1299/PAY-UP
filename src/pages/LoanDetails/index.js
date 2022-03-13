@@ -6,10 +6,8 @@ import {style} from './style';
 
 const LoanDetails = ({navigation}) => {
   const [amount, setAmount] = useState();
-  const [state, setState] = useState();
   const [isLoading, setLoading] = useState(false);
 
-  var month = null;
   var inst = null;
 
   const {control, handleSubmit, formState} = useForm({
@@ -26,10 +24,8 @@ const LoanDetails = ({navigation}) => {
   const submit = val => {
     if (amount >= 2000 && amount <= 50000) {
       if (val.tenure === 1) {
-        month = 3;
         inst = (parseInt(amount) + parseInt(amount) * 0.15) / 3;
       } else {
-        month = 6;
         inst = (parseInt(amount) + parseInt(amount) * 0.2) / 6;
       }
 
@@ -90,7 +86,6 @@ const LoanDetails = ({navigation}) => {
               />
             )
           }
-          // active={formState.isValid && !isLoading}
           onPress={handleSubmit(submit)}
           containerStyles={style.btn}
           active={amount}

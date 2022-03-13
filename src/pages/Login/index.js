@@ -13,9 +13,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import {useTheme} from 'react-native-paper';
-
 import styles from './style';
-import {numberValidation} from '../../helpers';
 
 const SignInScreen = ({navigation}) => {
   const [data, setData] = React.useState({
@@ -87,7 +85,6 @@ const SignInScreen = ({navigation}) => {
   };
 
   const loginHandle = () => {
-    // const {number} = numberValidation(data?.number);
     setLoading(true);
     if (data.number?.length == 0 || data.password?.length == 0) {
       Alert.alert('Wrong Input!', 'number or password field cannot be empty.', [

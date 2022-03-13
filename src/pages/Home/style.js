@@ -28,7 +28,7 @@ export const style = StyleSheet.create({
     paddingHorizontal: wp(5),
   },
   itemContainer: {
-    marginVertical: hp(3),
+    marginVertical: hp(2),
   },
   imageHeading: {
     color: 'black',
@@ -37,7 +37,7 @@ export const style = StyleSheet.create({
     // textAlign: 'center',
   },
   imageName: {
-    color: 'blue',
+    color: 'black',
     fontStyle: 'italic',
   },
   button: {
@@ -50,7 +50,6 @@ export const style = StyleSheet.create({
     paddingLeft: 10,
     color: 'white',
     backgroundColor: '#f3e980',
-    textDecorationColor: 'white',
   },
   action: {
     marginTop: 10,

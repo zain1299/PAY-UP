@@ -100,7 +100,7 @@ const SignInScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#f3e980" barStyle="light-content" />
+      <StatusBar backgroundColor="#aa833d" barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Welcome!</Text>
       </View>
@@ -119,7 +119,7 @@ const SignInScreen = ({navigation}) => {
               color: colors.text,
             },
           ]}>
-          Number
+          Mobile No.
         </Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color={colors.text} size={20} />
@@ -180,10 +180,12 @@ const SignInScreen = ({navigation}) => {
         </View>
 
         <View style={styles.button}>
-          <TouchableOpacity style={styles.signIn} onPress={() => loginHandle()}>
+          <TouchableOpacity
+            style={[styles.signIn, {borderColor: '#000'}]}
+            onPress={() => loginHandle()}>
             <LinearGradient
-              colors={['#f3e980', '#f3e980']}
-              style={styles.signIn}>
+              colors={['#aa833d', '#aa833d']}
+              style={[styles.signIn]}>
               {loading ? (
                 <ActivityIndicator size="small" color="#0000ff" />
               ) : (
@@ -205,7 +207,7 @@ const SignInScreen = ({navigation}) => {
             style={[
               styles.signIn,
               {
-                borderColor: '#f3e980',
+                borderColor: '#aa833d',
                 borderWidth: 2,
                 marginTop: 15,
               },
@@ -214,7 +216,7 @@ const SignInScreen = ({navigation}) => {
               style={[
                 styles.textSign,
                 {
-                  color: '#f3e980',
+                  color: '#aa833d',
                 },
               ]}>
               Sign Up

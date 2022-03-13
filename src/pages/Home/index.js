@@ -18,6 +18,7 @@ const Home = ({route, navigation}) => {
   const [idCardImage, setIdCardImage] = useState(null);
   const [parentIdCardImage, setParentIdCardImage] = useState(null);
   const [universityIdCardImage, SetUniversityIdCardImage] = useState(null);
+  const [degree, setDegree] = useState('');
 
   const [isLoading, setLoading] = useState(false);
 
@@ -103,7 +104,12 @@ const Home = ({route, navigation}) => {
 
   const handleSignOut = async () => {
     setLoading(true);
-    if (idCardImage.base64 && parentIdCardImage.base64) {
+    if (
+      idCardImage.base64 &&
+      parentIdCardImage.base64 &&
+      universityIdCardImage.base64 &&
+      degree
+    ) {
       setLoading(false);
     }
   };
@@ -118,6 +124,7 @@ const Home = ({route, navigation}) => {
         <ScrollView>
           <View>
             <Text style={style.imageHeading}>Student's CNIC</Text>
+            <Text>Please scan an image of your National Identity Card</Text>
             <Button
               label="Scan Student's CNIC"
               onPress={() => captureImage(setIdCardImage)}
@@ -130,6 +137,9 @@ const Home = ({route, navigation}) => {
             )}
 
             <Text style={style.imageHeading}>Parent's CNIC</Text>
+            <Text>
+              Please scan an image of your Parent's National Identity Card
+            </Text>
             <Button
               label="Scan Parent's CNIC"
               onPress={() => captureImage(setParentIdCardImage)}
@@ -143,6 +153,7 @@ const Home = ({route, navigation}) => {
             )}
 
             <Text style={style.imageHeading}>Student ID Card</Text>
+            <Text>Please scan an image of your Student Identity Card</Text>
             <Button
               label="Scan Student ID Card"
               onPress={() => captureImage(SetUniversityIdCardImage)}
@@ -162,7 +173,7 @@ const Home = ({route, navigation}) => {
                 placeholder="Previous Degree"
                 style={style.textInput}
                 autoCapitalize="none"
-                // onChangeText={e => setFullName(e)}
+                onChangeText={e => setDegree(e)}
               />
             </View>
           </View>

@@ -103,7 +103,7 @@ const Signup = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#f3e980" barStyle="light-content" />
+      <StatusBar backgroundColor="#aa833d" barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Register Now!</Text>
       </View>
@@ -174,7 +174,7 @@ const Signup = ({navigation}) => {
                 marginTop: 35,
               },
             ]}>
-            Number
+            Mobile No.
           </Text>
           <View style={styles.action}>
             <FontAwesome name="user-o" color="#05375a" size={20} />
@@ -262,7 +262,7 @@ const Signup = ({navigation}) => {
           </View>
           <View style={styles.textPrivate}>
             <Text style={styles.color_textPrivate}>
-              By signing up you agree to our
+              By signing up you agree to our{' '}
             </Text>
             <Text style={[styles.color_textPrivate, {fontWeight: 'bold'}]}>
               Terms of service
@@ -277,7 +277,7 @@ const Signup = ({navigation}) => {
               style={styles.signIn}
               onPress={handleSubmit(signup)}>
               <LinearGradient
-                colors={['#f3e980', '#f3e980']}
+                colors={['#aa833d', '#aa833d']}
                 style={styles.signIn}>
                 <Text
                   style={[
@@ -296,7 +296,7 @@ const Signup = ({navigation}) => {
               style={[
                 styles.signIn,
                 {
-                  borderColor: '#f3e980',
+                  borderColor: '#aa833d',
                   borderWidth: 2,
                   marginTop: 15,
                 },
@@ -305,7 +305,7 @@ const Signup = ({navigation}) => {
                 style={[
                   styles.textSign,
                   {
-                    color: '#f3e980',
+                    color: '#aa833d',
                   },
                 ]}>
                 Sign In

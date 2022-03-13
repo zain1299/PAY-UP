@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Text,
   View,
@@ -7,6 +7,8 @@ import {
   ActivityIndicator,
   ScrollView,
   TextInput,
+  Alert,
+  BackHandler,
 } from 'react-native';
 import {Button} from '../../common';
 import {style} from './style';
@@ -14,7 +16,7 @@ import {widthPercentageToDP as wp} from 'utils/responsive';
 import {launchCamera} from 'react-native-image-picker';
 import {useForm} from 'react-hook-form';
 
-const Home = ({route, navigation}) => {
+const Home = ({navigation}) => {
   const [idCardImage, setIdCardImage] = useState(null);
   const [parentIdCardImage, setParentIdCardImage] = useState(null);
   const [universityIdCardImage, SetUniversityIdCardImage] = useState(null);
@@ -26,6 +28,11 @@ const Home = ({route, navigation}) => {
     mode: 'onChange',
     reValidateMode: 'onChange',
   });
+
+  const disableBackButton = () => {
+    BackHandler.removeEventListener();
+    return true;
+  };
 
   const requestCameraPermission = async () => {
     if (Platform.OS === 'android') {
@@ -105,20 +112,27 @@ const Home = ({route, navigation}) => {
   const handleSignOut = async () => {
     setLoading(true);
     if (
-      idCardImage.base64 &&
-      parentIdCardImage.base64 &&
-      universityIdCardImage.base64 &&
-      degree
+      idCardImage?.base64 &&
+      parentIdCardImage?.base64 &&
+      universityIdCardImage?.base64 &&
+      degree.length != 0
     ) {
       setLoading(false);
       navigation.navigate('LoanDetails');
+    } else {
+      setLoading(false);
+      Alert.alert('Input Error!', 'Please fill all details.', [{text: 'Okay'}]);
     }
   };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', disableBackButton);
+  }, []);
 
   return (
     <View style={style.root}>
       <View style={style.Heading}>
-        <Text style={style.headingText}>Stundent Verification</Text>
+        <Text style={style.headingText}>Student Verification</Text>
       </View>
 
       <View style={style.container}>
@@ -134,7 +148,7 @@ const Home = ({route, navigation}) => {
               containerStyles={style.itemContainer}
             />
             {idCardImage && (
-              <View style={style.itemContainer}>
+              <View>
                 <Text style={style.imageName}>Image Taken Successfully</Text>
               </View>
             )}

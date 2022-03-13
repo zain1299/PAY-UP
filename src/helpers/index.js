@@ -6,14 +6,15 @@ export const parseError = error => {
   ]);
 };
 
-export const numberValidation = number => {
-  const numberLength = number;
+export const numberValidation = numbers => {
+  const numberLength = numbers;
   try {
     if (numberLength.length) {
       if (numberLength?.slice(0, 2) === '03') {
         if (numberLength?.length === 11) {
           return {
-            number: {numberLength},
+            valid: true,
+            number: numbers,
           };
         } else {
           throw new Error('Number should be 11 digits long');

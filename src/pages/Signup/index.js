@@ -30,7 +30,7 @@ const Signup = ({navigation}) => {
   const [number, setNumber] = useState('');
 
   const gender = [
-    {name: 'Select', id: null},
+    {name: 'Select', id: 0},
     {name: 'Male', id: 1},
     {name: 'Female', id: 2},
   ];
@@ -85,12 +85,15 @@ const Signup = ({navigation}) => {
     });
   };
 
-  // const dispatch = useDispatch();
-
   const signup = val => {
+    console.log('val', val);
+
     if (
       fullName?.length == 0 ||
+      val.gender == 0 ||
       data.email?.length == 0 ||
+      IdCard?.length ||
+      number?.length ||
       data.password?.length == 0 ||
       data.confirm_password?.length == 0
     ) {
@@ -155,7 +158,7 @@ const Signup = ({navigation}) => {
                 marginTop: 30,
               },
             ]}>
-            I'd Card
+            ID Card
           </Text>
           <View style={styles.action}>
             <FontAwesome name="user-o" color="#05375a" size={20} />
@@ -274,7 +277,7 @@ const Signup = ({navigation}) => {
           </View>
           <View style={styles.button}>
             <TouchableOpacity
-              style={styles.signIn}
+              style={[styles.signIn, {borderColor: '#000'}]}
               onPress={handleSubmit(signup)}>
               <LinearGradient
                 colors={['#aa833d', '#aa833d']}

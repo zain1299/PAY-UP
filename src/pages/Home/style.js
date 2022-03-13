@@ -48,13 +48,16 @@ export const style = StyleSheet.create({
     flex: 1,
     marginTop: Platform.OS === 'ios' ? 0 : -12,
     paddingLeft: 10,
-    color: 'white',
+    color: '#000',
     backgroundColor: '#f3e980',
   },
   action: {
-    marginTop: 10,
+    marginTop: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#f2f2f2',
     paddingBottom: 5,
+  },
+  textChild: {
+    fontSize: wp(4),
   },
 });

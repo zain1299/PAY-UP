@@ -111,6 +111,7 @@ const Home = ({route, navigation}) => {
       degree
     ) {
       setLoading(false);
+      navigation.navigate('LoanDetails');
     }
   };
 
@@ -124,7 +125,9 @@ const Home = ({route, navigation}) => {
         <ScrollView>
           <View>
             <Text style={style.imageHeading}>Student's CNIC</Text>
-            <Text>Please scan an image of your National Identity Card</Text>
+            <Text style={style.textChild}>
+              Please scan an image of your National Identity Card
+            </Text>
             <Button
               label="Scan Student's CNIC"
               onPress={() => captureImage(setIdCardImage)}
@@ -137,7 +140,7 @@ const Home = ({route, navigation}) => {
             )}
 
             <Text style={style.imageHeading}>Parent's CNIC</Text>
-            <Text>
+            <Text style={style.textChild}>
               Please scan an image of your Parent's National Identity Card
             </Text>
             <Button
@@ -153,7 +156,9 @@ const Home = ({route, navigation}) => {
             )}
 
             <Text style={style.imageHeading}>Student ID Card</Text>
-            <Text>Please scan an image of your Student Identity Card</Text>
+            <Text style={style.textChild}>
+              Please scan an image of your Student Identity Card
+            </Text>
             <Button
               label="Scan Student ID Card"
               onPress={() => captureImage(SetUniversityIdCardImage)}

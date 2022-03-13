@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
-import {View} from 'react-native-animatable';
+import {View, Text} from 'react-native';
+import {style} from './style';
 
 const LoanDetails = () => {
   return (
-    <View>
-      <Text>Loan Details</Text>
+    <View style={style.root}>
+      <View style={style.Heading}>
+        <Text style={style.headingText}>Loan Details</Text>
+      </View>
     </View>
   );
 };

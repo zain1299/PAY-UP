@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
+    // borderColor: 'black',
   },
   textSign: {
     fontSize: 18,

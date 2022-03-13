@@ -88,8 +88,6 @@ const Signup = ({navigation}) => {
   // const dispatch = useDispatch();
 
   const signup = val => {
-    console.log('val', val);
-
     if (
       fullName?.length == 0 ||
       data.email?.length == 0 ||
@@ -99,13 +97,13 @@ const Signup = ({navigation}) => {
       Alert.alert('Wrong Input!', 'All field must be filled', [{text: 'Okay'}]);
       return;
     } else {
-      Alert.alert('Success!', 'Successfully signup', [{text: 'Okay'}]);
+      navigation.navigate('Home');
     }
   };
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#009387" barStyle="light-content" />
+      <StatusBar backgroundColor="#f3e980" barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.text_header}>Register Now!</Text>
       </View>
@@ -187,25 +185,6 @@ const Signup = ({navigation}) => {
               onChangeText={e => setFullName(e)}
               keyboardType="numeric"
               maxLength={11}
-            />
-          </View>
-
-          <Text
-            style={[
-              styles.text_footer,
-              {
-                marginTop: 35,
-              },
-            ]}>
-            Date Of Birth
-          </Text>
-          <View style={styles.action}>
-            <FontAwesome name="user-o" color="#05375a" size={20} />
-            <TextInput
-              placeholder="Date Of Birth"
-              style={styles.textInput}
-              autoCapitalize="none"
-              onChangeText={e => setFullName(e)}
             />
           </View>
 
@@ -298,13 +277,13 @@ const Signup = ({navigation}) => {
               style={styles.signIn}
               onPress={handleSubmit(signup)}>
               <LinearGradient
-                colors={['#08d4c4', '#01ab9d']}
+                colors={['#f3e980', '#f3e980']}
                 style={styles.signIn}>
                 <Text
                   style={[
                     styles.textSign,
                     {
-                      color: '#fff',
+                      color: '#000',
                     },
                   ]}>
                   Sign Up
@@ -317,8 +296,8 @@ const Signup = ({navigation}) => {
               style={[
                 styles.signIn,
                 {
-                  borderColor: '#009387',
-                  borderWidth: 1,
+                  borderColor: '#f3e980',
+                  borderWidth: 2,
                   marginTop: 15,
                 },
               ]}>
@@ -326,7 +305,7 @@ const Signup = ({navigation}) => {
                 style={[
                   styles.textSign,
                   {
-                    color: '#009387',
+                    color: '#f3e980',
                   },
                 ]}>
                 Sign In

@@ -1,22 +1,3 @@
-// import React from 'react';
-// import {Text} from 'react-native';
-// import {View} from 'react-native-animatable';
-// import style from './style';
-
-// const Home = () => {
-//   return (
-//     <View style={style.mainContainer}>
-//       <View style={style.Heading}>
-//         <Text style={style.headingText}>Home</Text>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default Home;
-
-/* eslint-disable handle-callback-err */
-/* eslint-disable no-alert */
 import React, {useState} from 'react';
 import {
   Text,
@@ -24,6 +5,8 @@ import {
   Platform,
   PermissionsAndroid,
   ActivityIndicator,
+  ScrollView,
+  TextInput,
 } from 'react-native';
 import {Button} from '../../common';
 import {style} from './style';
@@ -32,8 +15,10 @@ import {launchCamera} from 'react-native-image-picker';
 import {useForm} from 'react-hook-form';
 
 const Home = ({route, navigation}) => {
-  const [shopImage, setShopImage] = useState(null);
-  const [productImage, setProductImage] = useState(null);
+  const [idCardImage, setIdCardImage] = useState(null);
+  const [parentIdCardImage, setParentIdCardImage] = useState(null);
+  const [universityIdCardImage, SetUniversityIdCardImage] = useState(null);
+
   const [isLoading, setLoading] = useState(false);
 
   const {handleSubmit, formState} = useForm({
@@ -118,59 +103,88 @@ const Home = ({route, navigation}) => {
 
   const handleSignOut = async () => {
     setLoading(true);
-    if (shopImage.base64 && productImage.base64) {
+    if (idCardImage.base64 && parentIdCardImage.base64) {
       setLoading(false);
     }
   };
 
   return (
     <View style={style.root}>
+      <View style={style.Heading}>
+        <Text style={style.headingText}>Stundent Verification</Text>
+      </View>
+
       <View style={style.container}>
-        <View>
-          <Text style={style.imageHeading}>ID Card Image</Text>
-          <Button
-            label="Scan ID Card "
-            onPress={() => captureImage(setShopImage)}
-            containerStyles={style.itemContainer}
-          />
-          <Button
-            label="Launch Camera for  Image"
-            onPress={() => captureImage(setProductImage)}
-            containerStyles={style.itemContainer}
-          />
-          {shopImage && (
-            <View style={style.itemContainer}>
-              <Text style={style.imageHeading}>ID Card Image</Text>
-              <Text style={style.imageName}>{shopImage.fileName}</Text>
-            </View>
-          )}
-          {productImage && (
-            <View style={style.itemContainer}>
-              <Text style={style.imageHeading}> Image</Text>
-              <Text style={style.imageName}>{productImage.fileName}</Text>
-            </View>
-          )}
-        </View>
-        <Button
-          label={!isLoading && 'Next'}
-          primary={formState.isValid}
-          icon={
-            isLoading && (
-              <ActivityIndicator
-                style={{position: 'absolute', left: wp('36')}}
+        <ScrollView>
+          <View>
+            <Text style={style.imageHeading}>Student's CNIC</Text>
+            <Button
+              label="Scan Student's CNIC"
+              onPress={() => captureImage(setIdCardImage)}
+              containerStyles={style.itemContainer}
+            />
+            {idCardImage && (
+              <View style={style.itemContainer}>
+                <Text style={style.imageName}>Image Taken Successfully</Text>
+              </View>
+            )}
+
+            <Text style={style.imageHeading}>Parent's CNIC</Text>
+            <Button
+              label="Scan Parent's CNIC"
+              onPress={() => captureImage(setParentIdCardImage)}
+              containerStyles={style.itemContainer}
+            />
+
+            {parentIdCardImage && (
+              <View>
+                <Text style={style.imageName}>Image Taken Successfully</Text>
+              </View>
+            )}
+
+            <Text style={style.imageHeading}>Student ID Card</Text>
+            <Button
+              label="Scan Student ID Card"
+              onPress={() => captureImage(SetUniversityIdCardImage)}
+              containerStyles={style.itemContainer}
+            />
+
+            {universityIdCardImage && (
+              <View>
+                <Text style={style.imageName}>Image Taken Successfully</Text>
+              </View>
+            )}
+
+            <Text style={style.imageHeading}>Previous Degree</Text>
+
+            <View style={style.action}>
+              <TextInput
+                placeholder="Previous Degree"
+                style={style.textInput}
+                autoCapitalize="none"
+                // onChangeText={e => setFullName(e)}
               />
-            )
-          }
-          // active={formState.isValid && !isLoading}
-          onPress={handleSubmit(handleSignOut)}
-          containerStyles={style.btn}
-          active={shopImage && productImage}
-        />
-        {/* <Button
-          label="Next"
-          active={shopImage && productImage}
-          onPress={handleSignOut}
-        /> */}
+            </View>
+          </View>
+
+          <View style={style.button}>
+            <Button
+              label={!isLoading && 'Next'}
+              primary={formState.isValid}
+              icon={
+                isLoading && (
+                  <ActivityIndicator
+                    style={{position: 'absolute', left: wp('36')}}
+                  />
+                )
+              }
+              // active={formState.isValid && !isLoading}
+              onPress={handleSubmit(handleSignOut)}
+              containerStyles={style.btn}
+              active={idCardImage && parentIdCardImage}
+            />
+          </View>
+        </ScrollView>
       </View>
     </View>
   );

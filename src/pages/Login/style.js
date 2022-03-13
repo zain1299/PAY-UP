@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#009387',
+    backgroundColor: '#f3e980',
   },
   header: {
     flex: 1,
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
   },
   text_header: {
-    color: '#fff',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 30,
   },

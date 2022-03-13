@@ -7,10 +7,10 @@ export default StyleSheet.create({
   container: {
     width: '100%',
     height: wp('12'),
-    borderWidth: wp('0.5'),
+    borderWidth: wp('0.3'),
     borderRadius: wp('6'),
-    backgroundColor: colors.green,
-    borderColor: colors.green,
+    backgroundColor: '#f3e980',
+    borderColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -22,9 +22,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   label: {
-    fontSize: wp('3.5'),
+    fontSize: wp('4'),
     letterSpacing: 0,
-    color: colors.activeColor,
+    color: 'black',
     fontFamily: fontFamily.PoppinsBold,
   },
 });
